@@ -1,7 +1,7 @@
 ---
 title: "Business Intelligence Project"
-author: "<Specify your name here>"
-date: "<Specify the date when you submitted the lab>"
+author: "Adrianna Bitutu Ndubi"
+date: "15th October 2023"
 output:
   github_document: 
     toc: yes
@@ -17,9 +17,9 @@ editor_options:
 
 |                                              |     |
 |----------------------------------------------|-----|
-| **Student ID Number**                        | ... |
-| **Student Name**                             | ... |
-| **BBIT 4.2 Group**                           | ... |
+| **Student ID Number**                        | 134126 |
+| **Student Name**                             | Ndubi Adrianna Bitutu |
+| **BBIT 4.2 Group**                           | Fearless Achievers|
 | **BI Project Group Name/ID (if applicable)** | ... |
 
 # Setup Chunk
@@ -42,7 +42,7 @@ knitr::opts_chunk$set(
 
 ### Source:
 
-The dataset that was used can be downloaded here: *\<provide a link\>*
+The dataset that was used can be downloaded here: *\<https://docs.google.com/spreadsheets/d/1LwVZIklzc0JvyVPQul9CxGnu2spipZjXaCO_Zv8H2sc/edit#gid=2007896421>*
 
 ### Reference:
 
@@ -54,6 +54,28 @@ library(readr)
 
 # Provide the executable R code inside the various code chunks as guided by the
 # lab work.
-```
+```### The Normalize Transform on the student_performance_dataset Dataset ----
+summary(student_performance_dataset)
+model_of_the_transform <- preProcess(student_performance_dataset, method = c("range"))
+print(model_of_the_transform)
+student_performance_dataset_normalize_transform <- predict(model_of_the_transform, # nolint
+                                                           student_performance_dataset)
+summary(student_performance_dataset_normalize_transform)
 
-...to be continued
+### The Standardize Basic Transform on the student_performance_dataset Dataset ----
+# BEFORE
+summary(student_performance_dataset)
+sapply(student_performance_dataset[, 1:8], sd)
+
+model_of_the_transform <- preProcess(student_performance_dataset,
+                                     method = c("scale", "center"))
+print(model_of_the_transform)
+student_performance_dataset_standardize_transform <- predict(model_of_the_transform, # nolint
+                                                             student_performance_dataset)
+
+# AFTER
+summary(student_performance_dataset_standardize_transform)
+sapply(student_performance_dataset_standardize_transform[, 1:8], sd)
+
+
+
