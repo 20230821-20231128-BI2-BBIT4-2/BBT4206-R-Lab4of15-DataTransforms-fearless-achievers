@@ -427,10 +427,10 @@ boxplot(boston_housing_center_transform[, 14],
         main = names(boston_housing_center_transform)[14])
 
 ### The Centre Basic Transform on the Crop Dataset ----
-summary(crop_dataset)
-model_of_the_transform <- preProcess(crop_dataset, method = c("center"))
+summary(crop_data)
+model_of_the_transform <- preProcess(crop_data, method = c("center"))
 print(model_of_the_transform)
-crop_data_center_transform <- predict(model_of_the_transform, crop_dataset)
+crop_data_center_transform <- predict(model_of_the_transform, crop_data)
 summary(crop_data_center_transform)
 
 ### The Centre Basic Transform on the Iris Dataset ----
@@ -448,6 +448,13 @@ pima_indians_diabetes_center_transform <- predict(model_of_the_transform, # noli
                                                   PimaIndiansDiabetes)
 summary(pima_indians_diabetes_center_transform)
 
+### The Centre Basic Transform on the student_performance_dataset ----
+summary(student_performance_dataset)
+model_of_the_transform <- preProcess(student_performance_dataset, method = c("center"))
+print(model_of_the_transform)
+student_performance_dataset_center_transform <- predict(model_of_the_transform, # nolint
+                                                        student_performance_dataset)
+summary(student_performance_dataset_center_transform)
 # Standardize Data Transform ----
 ## STEP 5. Apply a Standardize Data Transform ----
 # The standardize data transform ensures that each numeric attribute has a mean
