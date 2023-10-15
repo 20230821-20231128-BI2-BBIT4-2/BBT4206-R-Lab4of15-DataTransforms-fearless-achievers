@@ -1,23 +1,23 @@
 Business Intelligence Project
 ================
-<Specify your name here>
-<Specify the date when you submitted the lab>
+<Adrianna Bitutu Ndubi>
+<15 October 2023>
 
-- [Student Details](#student-details)
+- [134126, Ndubi Adrianna](#student-details)
 - [Setup Chunk](#setup-chunk)
 - [Understanding the Dataset (Exploratory Data Analysis
   (EDA))](#understanding-the-dataset-exploratory-data-analysis-eda)
   - [Loading the Dataset](#loading-the-dataset)
-    - [Source:](#source)
+    - [Source:student_performance_dataset(BI 2 Google Drive)](#source)
     - [Reference:](#reference)
 
 # Student Details
 
 |                                              |     |
 |----------------------------------------------|-----|
-| **Student ID Number**                        | …   |
-| **Student Name**                             | …   |
-| **BBIT 4.2 Group**                           | …   |
+| 134126                      | …   |
+| Ndubi Adrianna Bitutu                            | …   |
+| Fearless Achievers                          | …   |
 | **BI Project Group Name/ID (if applicable)** | …   |
 
 # Setup Chunk
@@ -36,7 +36,7 @@ here <https://yihui.org/knitr/options/>.
 
 ### Source:
 
-The dataset that was used can be downloaded here: *\<provide a link\>*
+The dataset that was used can be downloaded here: *\<https://docs.google.com/spreadsheets/d/1LwVZIklzc0JvyVPQul9CxGnu2spipZjXaCO_Zv8H2sc/edit#gid=2007896421\>*
 
 ### Reference:
 
@@ -49,6 +49,46 @@ library(readr)
 
 # Provide the executable R code inside the various code chunks as guided by the
 # lab work.
-```
 
-…to be continued
+### PCA for Dimensionality Reduction on the student_perfomance_dataset Dataset ----
+summary(student_performance_dataset)
+
+model_of_the_transform <- preProcess(student_performance_dataset,
+                                     method = c("scale", "center", "pca"))
+print(model_of_the_transform)
+student_performance_dataset_pca_transform <- predict(model_of_the_transform, # nolint
+                                                    student_perfomance_dataset)
+summary(student_perfomance_dataset_pca_transform)``
+
+summary(student_performance_dataset)
+
+# Calculate the skewness before the Yeo-Johnson transform
+sapply(student_performance_dataset[, 1:8],  skewness, type = 2)
+
+# Plot a histogram to view the skewness before the Yeo-Johnson transform
+par(mfrow = c(1, 8))
+for (i in 1:8) {
+  hist(student_performance_dataset[, i], main = names(student_performance_dataset)[i])
+}
+
+model_of_the_transform <- preProcess(student_performance_dataset,
+                                     method = c("YeoJohnson"))
+print(model_of_the_transform)
+student_performance_dataset_yeo_johnson_transform <- predict(model_of_the_transform, # nolint
+                                                             student_performance_dataset)
+
+# AFTER
+summary(student_performance_dataset_yeo_johnson_transform)
+
+# Calculate the skewness after the Yeo-Johnson transform
+sapply(student_performance_dataset_yeo_johnson_transform[, 1:8],  skewness, type = 2)
+
+# Plot a histogram to view the skewness after the Yeo-Johnson transform
+par(mfrow = c(1, 8))
+for (i in 1:8) {
+  hist(student_performance_dataset_yeo_johnson_transform[, i],
+       main = names(student_performance_dataset_yeo_johnson_transform)[i])
+}
+
+
+

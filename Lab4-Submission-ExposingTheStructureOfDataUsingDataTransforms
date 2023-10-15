@@ -1,0 +1,311 @@
+.libPaths()
+lapply(.libPaths(), list.files)
+if (require("languageserver")) {
+  require("languageserver")
+} else {
+  install.packages("languageserver", dependencies = TRUE,
+                   repos = "https://cloud.r-project.org")
+}
+if (!is.element("renv", installed.packages()[, 1])) {
+# install.packages("renv", dependencies = TRUE,
+repos = "https://cloud.r-project.org" # nolint
+# }
+
+lapply(.libPaths(), list.files)
+if (!is.element("languageserver", installed.packages()[, 1])) {
+  install.packages("languageserver", dependencies = TRUE,
+  repos = "https://cloud.r-project.org")
+}
+require("languageserver")
+
+
+## dplyr - For data manipulation ----
+if (!is.element("dplyr", installed.packages()[, 1])) {
+  install.packages("dplyr", dependencies = TRUE,
+  repos = "https://cloud.r-project.org")
+}
+require("dplyr")
+
+## ggplot2 - For data visualizations using the Grammar for Graphics package ----
+if (!is.element("ggplot2", installed.packages()[, 1])) {
+install.packages("ggplot2", dependencies = TRUE,
+repos = "https://cloud.r-project.org")
+}
+require("ggplot2")
+
+## ggrepel - Additional options for the Grammar for Graphics package ----
+if (!is.element("ggrepel", installed.packages()[, 1])) {
+install.packages("ggrepel", dependencies = TRUE,
+repos = "https://cloud.r-project.org")
+}
+require("ggrepel")
+
+## ggraph - Additional options for the Grammar for Graphics package ----
+if (!is.element("ggraph", installed.packages()[, 1])) {
+install.packages("ggraph", dependencies = TRUE,
+repos = "https://cloud.r-project.org")
+}
+require("ggraph")
+
+## tidytext - For text mining ----
+if (!is.element("tidytext", installed.packages()[, 1])) {
+install.packages("tidytext", dependencies = TRUE,
+repos = "https://cloud.r-project.org")
+}
+require("tidytext")
+
+## tidyr - To tidy messy data ----
+if (!is.element("tidyr", installed.packages()[, 1])) {
+install.packages("tidyr", dependencies = TRUE,
+repos = "https://cloud.r-project.org")
+}
+require("tidyr")
+
+## widyr - To widen, process, and re-tidy a dataset ----
+if (!is.element("widyr", installed.packages()[, 1])) {
+install.packages("widyr", dependencies = TRUE,
+repos = "https://cloud.r-project.org")
+}
+require("widyr")
+
+## gridExtra - to arrange multiple grid-based plots on a page ----
+if (!is.element("gridExtra", installed.packages()[, 1])) {
+install.packages("gridExtra", dependencies = TRUE,
+repos = "https://cloud.r-project.org")
+}
+require("gridExtra")
+
+## knitr - for dynamic report generation ----
+if (!is.element("knitr", installed.packages()[, 1])) {
+install.packages("knitr", dependencies = TRUE,
+repos = "https://cloud.r-project.org")
+}
+require("knitr")
+
+## kableExtra - for nicely formatted output tables ----
+if (!is.element("kableExtra", installed.packages()[, 1])) {
+install.packages("kableExtra", dependencies = TRUE,
+repos = "https://cloud.r-project.org")
+}
+require("kableExtra")
+
+## formattable -  To create a formattable object ----
+# A formattable object is an object to which a formatting function and related
+# attributes are attached.
+if (!is.element("formattable", installed.packages()[, 1])) {
+install.packages("formattable", dependencies = TRUE,
+repos = "https://cloud.r-project.org")
+}
+require("formattable")
+
+## circlize - To create a cord diagram or visualization ----
+# by Gu et al. (2014)
+if (!is.element("circlize", installed.packages()[, 1])) {
+install.packages("circlize", dependencies = TRUE,
+repos = "https://cloud.r-project.org")
+}
+require("circlize")
+
+## memery - For creating data analysis related memes ----
+# The memery package generates internet memes that optionally include a
+# superimposed inset plot and other atypical features, combining the visual
+# impact of an attention-grabbing meme with graphic results of data analysis.
+if (!is.element("memery", installed.packages()[, 1])) {
+install.packages("memery", dependencies = TRUE,
+repos = "https://cloud.r-project.org")
+}
+require("memery")
+
+## magick - For image processing in R ----
+if (!is.element("magick", installed.packages()[, 1])) {
+install.packages("magick", dependencies = TRUE,
+repos = "https://cloud.r-project.org")
+}
+require("magick")
+
+## yarrr - To create a pirate plot ----
+if (!is.element("yarrr", installed.packages()[, 1])) {
+install.packages("yarrr", dependencies = TRUE,
+repos = "https://cloud.r-project.org")
+}
+require("yarrr")
+
+## radarchart - To create interactive radar charts using ChartJS ----
+if (!is.element("radarchart", installed.packages()[, 1])) {
+install.packages("radarchart", dependencies = TRUE,
+repos = "https://cloud.r-project.org")
+}
+require("radarchart")
+
+## igraph - To create ngram network diagrams ----
+if (!is.element("igraph", installed.packages()[, 1])) {
+install.packages("igraph", dependencies = TRUE,
+repos = "https://cloud.r-project.org")
+}
+require("igraph")
+
+## wordcloud2 - For creating wordcloud by using 'wordcloud2.JS ----
+if (!is.element("wordcloud2", installed.packages()[, 1])) {
+install.packages("wordcloud2", dependencies = TRUE,
+repos = "https://cloud.r-project.org")
+}
+require("wordcloud2")
+
+## readr - Load datasets from CSV files ----
+if (!is.element("readr", installed.packages()[, 1])) {
+install.packages("readr", dependencies = TRUE,
+repos = "https://cloud.r-project.org")
+}
+require("readr")
+
+##load dataset
+student_performance_dataset <-
+  readr::read_csv(
+                  "data/20230412-20230719-BI1-BBIT4-1-StudentPerformanceDataset.CSV", # nolint
+                  col_types =
+                  readr::cols(
+                              class_group =
+                              readr::col_factor(levels = c("A", "B", "C")),
+                              gender = readr::col_factor(levels = c("1", "0")),
+                              YOB = readr::col_date(format = "%Y"),
+                              regret_choosing_bi =
+                              readr::col_factor(levels = c("1", "0")),
+                              drop_bi_now =
+                              readr::col_factor(levels = c("1", "0")),
+                              motivator =
+                              readr::col_factor(levels = c("1", "0")),
+                              read_content_before_lecture =
+                              readr::col_factor(levels =
+                                                c("1", "2", "3", "4", "5")),
+                              anticipate_test_questions =
+                              readr::col_factor(levels =
+                                                c("1", "2", "3", "4", "5")),
+                              answer_rhetorical_questions =
+                              readr::col_factor(levels =
+                                                c("1", "2", "3", "4", "5")),
+                              find_terms_I_do_not_know =
+                              readr::col_factor(levels =
+                                                c("1", "2", "3", "4", "5")),
+                              copy_new_terms_in_reading_notebook =
+                              readr::col_factor(levels =
+                                                c("1", "2", "3", "4", "5")),
+                              take_quizzes_and_use_results =
+                              readr::col_factor(levels =
+                                                c("1", "2", "3", "4", "5")),
+                              reorganise_course_outline =
+                              readr::col_factor(levels =
+                                                c("1", "2", "3", "4", "5")),
+                              write_down_important_points =
+                              readr::col_factor(levels =
+                                                c("1", "2", "3", "4", "5")),
+                              space_out_revision =
+                              readr::col_factor(levels =
+                                                c("1", "2", "3", "4", "5")),
+                              studying_in_study_group =
+                              readr::col_factor(levels =
+                                                c("1", "2", "3", "4", "5")),
+                              schedule_appointments =
+                              readr::col_factor(levels =
+                                                c("1", "2", "3", "4", "5")),
+                              goal_oriented =
+                              readr::col_factor(levels =
+                                                c("1", "0")),
+                              spaced_repetition =
+                              readr::col_factor(levels =
+                                                c("1", "2", "3", "4")),
+                              testing_and_active_recall =
+                              readr::col_factor(levels =
+                                                c("1", "2", "3", "4")),
+                              interleaving =
+                              readr::col_factor(levels =
+                                                c("1", "2", "3", "4")),
+                              categorizing =
+                              readr::col_factor(levels =
+                                                c("1", "2", "3", "4")),
+                              retrospective_timetable =
+                              readr::col_factor(levels =
+                                                c("1", "2", "3", "4")),
+                              cornell_notes =
+                              readr::col_factor(levels =
+                                                c("1", "2", "3", "4")),
+                              sq3r = readr::col_factor(levels =
+                                                       c("1", "2", "3", "4")),
+                              commute = readr::col_factor(levels =
+                                                          c("1", "2",
+                                                            "3", "4")),
+                              study_time = readr::col_factor(levels =
+                                                             c("1", "2",
+                                                               "3", "4")),
+                              repeats_since_Y1 = readr::col_integer(),
+                              paid_tuition = readr::col_factor(levels =
+                                                               c("0", "1")),
+                              free_tuition = readr::col_factor(levels =
+                                                               c("0", "1")),
+                              extra_curricular = readr::col_factor(levels =
+                                                                   c("0", "1")),
+                              sports_extra_curricular =
+                              readr::col_factor(levels = c("0", "1")),
+                              exercise_per_week = readr::col_factor(levels =
+                                                                    c("0", "1",
+                                                                      "2",
+                                                                      "3")),
+                              meditate = readr::col_factor(levels =
+                                                           c("0", "1",
+                                                             "2", "3")),
+                              pray = readr::col_factor(levels =
+                                                       c("0", "1",
+                                                         "2", "3")),
+                              internet = readr::col_factor(levels =
+                                                           c("0", "1")),
+                              laptop = readr::col_factor(levels = c("0", "1")),
+                              family_relationships =
+                              readr::col_factor(levels =
+                                                c("1", "2", "3", "4", "5")),
+                              friendships = readr::col_factor(levels =
+                                                              c("1", "2", "3",
+                                                                "4", "5")),
+                              romantic_relationships =
+                              readr::col_factor(levels =
+                                                c("0", "1", "2", "3", "4")),
+                              spiritual_wellnes =
+                              readr::col_factor(levels = c("1", "2", "3",
+                                                           "4", "5")),
+                              financial_wellness =
+                              readr::col_factor(levels = c("1", "2", "3",
+                                                           "4", "5")),
+                              health = readr::col_factor(levels = c("1", "2",
+                                                                    "3", "4",
+                                                                    "5")),
+                              day_out = readr::col_factor(levels = c("0", "1",
+                                                                     "2", "3")),
+                              night_out = readr::col_factor(levels = c("0",
+                                                                       "1", "2",
+                                                                       "3")),
+                              alcohol_or_narcotics =
+                              readr::col_factor(levels = c("0", "1", "2", "3")),
+                              mentor = readr::col_factor(levels = c("0", "1")),
+                              mentor_meetings = readr::col_factor(levels =
+                                                                  c("0", "1",
+                                                                    "2", "3")),
+                              `Attendance Waiver Granted: 1 = Yes, 0 = No` =
+                              readr::col_factor(levels = c("0", "1")),
+                              GRADE = readr::col_factor(levels =
+                              c("A", "B", "C", "D",
+                                                          "E"))),
+                                          
+                  locale = readr::locale())
+
+View(student_performance_dataset)
+
+summary(student_performance_dataset)
+
+model_of_the_transform <- preProcess(student_performance_dataset, method = c("scale"))
+print(model_of_the_transform)
+student_performance_dataset_scale_transform <- predict(model_of_the_transform,student_performance_dataset)
+
+##skewness
+sapply(student_performance_dataset[, -4],  skewness, type = 2)
+
+summary(student_performance_dataset_scale_transform)
+student_performance_dataset <- as.numeric(unlist(student_performance_dataset_scale_transform[, 4]))
+hist(student_performance_dataset, main = names(student_performance_dataset_scale_transform)[4])
