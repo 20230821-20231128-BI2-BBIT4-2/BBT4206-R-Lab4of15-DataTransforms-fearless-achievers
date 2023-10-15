@@ -398,33 +398,33 @@ boston_housing_center_transform <- predict(model_of_the_transform, # nolint
                                            BostonHousing)
 
 # AFTER
-summary(boston_housing_center_transform)
-boxplot(boston_housing_center_transform[, 1],
-        main = names(boston_housing_center_transform)[1])
-boxplot(boston_housing_center_transform[, 2],
-        main = names(boston_housing_center_transform)[2])
-boxplot(boston_housing_center_transform[, 3],
-        main = names(boston_housing_center_transform)[3])
-boxplot(boston_housing_center_transform[, 5],
-        main = names(boston_housing_center_transform)[5])
-boxplot(boston_housing_center_transform[, 6],
-        main = names(boston_housing_center_transform)[6])
-boxplot(boston_housing_center_transform[, 7],
-        main = names(boston_housing_center_transform)[7])
-boxplot(boston_housing_center_transform[, 8],
-        main = names(boston_housing_center_transform)[8])
-boxplot(boston_housing_center_transform[, 9],
-        main = names(boston_housing_center_transform)[9])
-boxplot(boston_housing_center_transform[, 10],
-        main = names(boston_housing_center_transform)[10])
-boxplot(boston_housing_center_transform[, 11],
-        main = names(boston_housing_center_transform)[11])
-boxplot(boston_housing_center_transform[, 12],
-        main = names(boston_housing_center_transform)[12])
-boxplot(boston_housing_center_transform[, 13],
-        main = names(boston_housing_center_transform)[13])
-boxplot(boston_housing_center_transform[, 14],
-        main = names(boston_housing_center_transform)[14])
+summary(Boston_Housing_center_transform)
+boxplot(Boston_Housing_center_transform[, 1],
+        main = names(Boston_Housing_center_transform)[1])
+boxplot(Boston_Housing_center_transform[, 2],
+        main = names(Boston_Housing_center_transform)[2])
+boxplot(Boston_Housing_center_transform[, 3],
+        main = names(Boston_Housing_center_transform)[3])
+boxplot(Boston_Housing_center_transform[, 5],
+        main = names(Boston_Housing_center_transform)[5])
+boxplot(Boston_Housing_center_transform[, 6],
+        main = names(Boston_Housing_center_transform)[6])
+boxplot(Boston_Housing_center_transform[, 7],
+        main = names(Boston_Housing_center_transform)[7])
+boxplot(Boston_Housing_center_transform[, 8],
+        main = names(Boston_Housing_center_transform)[8])
+boxplot(Boston_Housing_center_transform[, 9],
+        main = names(Boston_Housing_center_transform)[9])
+boxplot(Boston_Housing_center_transform[, 10],
+        main = names(Boston_Housing_center_transform)[10])
+boxplot(Boston_Housing_center_transform[, 11],
+        main = names(Boston_Housing_center_transform)[11])
+boxplot(Boston_Housing_center_transform[, 12],
+        main = names(Boston_Housing_center_transform)[12])
+boxplot(Boston_Housing_center_transform[, 13],
+        main = names(Boston_Housing_center_transform)[13])
+boxplot(Boston_Housing_center_transform[, 14],
+        main = names(Boston_Housing_center_transform)[14])
 
 ### The Centre Basic Transform on the Crop Dataset ----
 summary(crop_data)
